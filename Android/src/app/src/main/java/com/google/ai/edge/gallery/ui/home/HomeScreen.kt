@@ -778,6 +778,7 @@ private fun TaskList(
 
 @Composable
 private fun TaskCard(task: Task, index: Int, onClick: () -> Unit, modifier: Modifier = Modifier) {
+  val context = LocalContext.current
   // Observes the model count and updates the model count label with a fade-in/fade-out animation
   // whenever the count changes.
   val modelCount by remember {
