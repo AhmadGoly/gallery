@@ -24,7 +24,10 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.core.os.bundleOf
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.google.ai.edge.gallery.ui.theme.GalleryTheme
@@ -45,7 +48,11 @@ class MainActivity : ComponentActivity() {
       // See: https://issuetracker.google.com/issues/298296168
       window.isNavigationBarContrastEnforced = false
     }
-    setContent { GalleryTheme { Surface(modifier = Modifier.fillMaxSize()) { GalleryApp() } } }
+    setContent {
+      CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
+        GalleryTheme { Surface(modifier = Modifier.fillMaxSize()) { GalleryApp() } }
+      }
+    }
     // Keep the screen on while the app is running for better demo experience.
     window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
   }

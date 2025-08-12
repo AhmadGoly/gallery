@@ -16,9 +16,9 @@
 
 <resources>
   <!-- TODO(jingjin): Add translation support when i18n is ready. -->
-  <string name="app_name" translatable="true">گالری هوش مصنوعی گوگل</string>
-  <string name="app_name_first_part" translatable="true">هوش مصنوعی گوگل</string>
-  <string name="app_name_second_part" translatable="true">گالری اج</string>
+  <string name="app_name" translatable="true">SmartBoom AI Chatbot</string>
+  <string name="app_name_first_part" translatable="true">SmartBoom AI</string>
+  <string name="app_name_second_part" translatable="true">Chatbot</string>
   <string name="app_intro" translatable="true">دنیایی از مدل‌های شگفت‌انگیز روی دستگاه را از اینجا کاوش کنید</string>
   <string name="best_overall" translatable="true">بهترین در کل</string>
   <plurals name="model_list_number_of_models_available" translatable="true">
@@ -61,7 +61,7 @@
   <string name="text_input_placeholder_text_classification" translatable="true">برای طبقه‌بندی، نقد فیلم را تایپ کنید...</string>
   <string name="text_image_generation_text_field_placeholder" translatable="true">اعلان را تایپ کنید...</string>
   <string name="text_input_placeholder_llm_chat" translatable="true">اعلان را تایپ کنید...</string>
-  <string name="tos_dialog_title_app_name" translatable="true">برنامه گالری هوش مصنوعی گوگل</string>
+  <string name="tos_dialog_title_app_name" translatable="true">SmartBoom AI Chatbot App</string>
   <string name="tos_dialog_title_tos" translatable="true">شرایط خدمات</string>
   <string name="tos_dialog_view_full_tos" translatable="true">مشاهده شرایط خدمات این برنامه</string>
   <string name="tos_dialog_view_accept_button_label" translatable="true">پذیرش و ادامه</string>

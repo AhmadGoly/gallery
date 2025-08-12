@@ -133,98 +133,98 @@ val LocalCustomColors = staticCompositionLocalOf { CustomColors() }
 
 val lightCustomColors =
   CustomColors(
-    appTitleGradientColors = listOf(Color(0xFFD32F2F), Color(0xFFB71C1C)),
-    tabHeaderBgColor = Color(0xFFD32F2F),
+    appTitleGradientColors = listOf(Color(0xFF1976D2), Color(0xFF0D47A1)),
+    tabHeaderBgColor = Color(0xFF1976D2),
     taskCardBgColor = surfaceContainerLowestLight,
     taskBgColors =
       listOf(
-        // red
-        Color(0xFFFFEBEE),
         // blue
         Color(0xFFE3F2FD),
-        // gold
-        Color(0xFFFFF8E1),
-        // purple
-        Color(0xFFF3E5F5),
+        // light blue
+        Color(0xFFE1F5FE),
+        // lighter blue
+        Color(0xFFBBDEFB),
+        // lightest blue
+        Color(0xFFE3F2FD),
       ),
     taskBgGradientColors =
       listOf(
-        // red
-        listOf(Color(0xFFEF5350), Color(0xFFD32F2F)),
         // blue
-        listOf(Color(0xFF42A5F5), Color(0xFF0288D1)),
-        // gold
-        listOf(Color(0xFFFFC107), Color(0xFFFFA000)),
-        // purple
-        listOf(Color(0xFFAB47BC), Color(0xFF8E24AA)),
+        listOf(Color(0xFF42A5F5), Color(0xFF1976D2)),
+        // light blue
+        listOf(Color(0xFF64B5F6), Color(0xFF42A5F5)),
+        // lighter blue
+        listOf(Color(0xFF90CAF9), Color(0xFF64B5F6)),
+        // lightest blue
+        listOf(Color(0xFFBBDEFB), Color(0xFF90CAF9)),
       ),
     taskIconColors =
       listOf(
-        // red.
-        Color(0xFFD32F2F),
         // blue
-        Color(0xFF0288D1),
-        // gold
-        Color(0xFFFFA000),
-        // purple
-        Color(0xFF8E24AA),
+        Color(0xFF1976D2),
+        // light blue
+        Color(0xFF42A5F5),
+        // lighter blue
+        Color(0xFF64B5F6),
+        // lightest blue
+        Color(0xFF90CAF9),
       ),
     taskIconShapeBgColor = Color.White,
-    homeBottomGradient = listOf(Color(0x00FAFAFA), Color(0xFFFFECB3)),
+    homeBottomGradient = listOf(Color(0x00F5F5F5), Color(0xFFE3F2FD)),
     agentBubbleBgColor = Color(0xFFEEEEEE),
-    userBubbleBgColor = Color(0xFFB71C1C),
-    linkColor = Color(0xFF0288D1),
+    userBubbleBgColor = Color(0xFF1976D2),
+    linkColor = Color(0xFF0D47A1),
     successColor = Color(0xFF388E3C),
-    recordButtonBgColor = Color(0xFFD32F2F),
+    recordButtonBgColor = Color(0xFF1976D2),
     waveFormBgColor = Color(0xFFBDBDBD),
     modelInfoIconColor = Color(0xFFBDBDBD),
   )
 
 val darkCustomColors =
   CustomColors(
-    appTitleGradientColors = listOf(Color(0xFFFF5252), Color(0xFFD32F2F)),
-    tabHeaderBgColor = Color(0xFFB71C1C),
+    appTitleGradientColors = listOf(Color(0xFF64B5F6), Color(0xFF90CAF9)),
+    tabHeaderBgColor = Color(0xFF0D47A1),
     taskCardBgColor = surfaceContainerHighDark,
     taskBgColors =
       listOf(
-        // red
-        Color(0xFF212121),
         // blue
         Color(0xFF212121),
-        // gold
+        // light blue
         Color(0xFF212121),
-        // purple
+        // lighter blue
+        Color(0xFF212121),
+        // lightest blue
         Color(0xFF212121),
       ),
     taskBgGradientColors =
       listOf(
-        // red
-        listOf(Color(0xFFEF5350), Color(0xFFD32F2F)),
         // blue
-        listOf(Color(0xFF42A5F5), Color(0xFF0288D1)),
-        // gold
-        listOf(Color(0xFFFFC107), Color(0xFFFFA000)),
-        // purple
-        listOf(Color(0xFFAB47BC), Color(0xFF8E24AA)),
+        listOf(Color(0xFF42A5F5), Color(0xFF1976D2)),
+        // light blue
+        listOf(Color(0xFF64B5F6), Color(0xFF42A5F5)),
+        // lighter blue
+        listOf(Color(0xFF90CAF9), Color(0xFF64B5F6)),
+        // lightest blue
+        listOf(Color(0xFFBBDEFB), Color(0xFF90CAF9)),
       ),
     taskIconColors =
       listOf(
-        // red
-        Color(0xFFFFCDD2),
         // blue
-        Color(0xFFB3E5FC),
-        // gold
-        Color(0xFFFFECB3),
-        // purple
-        Color(0xFFE1BEE7),
+        Color(0xFFBBDEFB),
+        // light blue
+        Color(0xFF90CAF9),
+        // lighter blue
+        Color(0xFF64B5F6),
+        // lightest blue
+        Color(0xFF42A5F5),
       ),
     taskIconShapeBgColor = Color(0xFF424242),
-    homeBottomGradient = listOf(Color(0x00121212), Color(0x1AFFE0B2)),
+    homeBottomGradient = listOf(Color(0x00121212), Color(0x1AE3F2FD)),
     agentBubbleBgColor = Color(0xFF424242),
-    userBubbleBgColor = Color(0xFFD32F2F),
-    linkColor = Color(0xFF4FC3F7),
+    userBubbleBgColor = Color(0xFF1976D2),
+    linkColor = Color(0xFF64B5F6),
     successColor = Color(0xFF81C784),
-    recordButtonBgColor = Color(0xFFD32F2F),
+    recordButtonBgColor = Color(0xFF1976D2),
     waveFormBgColor = Color(0xFFBDBDBD),
     modelInfoIconColor = Color(0xFFBDBDBD),
   )
