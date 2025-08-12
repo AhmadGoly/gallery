@@ -171,15 +171,69 @@ fun HomeScreen(
       onTosAccepted = {
         showTosDialog = false
         tosViewModel.acceptTos()
-      }
+      },
     )
   } else {
-    // Show splash screen and navigate after delay
-    SplashScreen()
+    // The code below manages the display of the model allowlist loading indicator with a debounced
+    // delay. It ensures that a progress indicator is only shown if the loading operation
+    // (represented by `uiState.loadingModelAllowlist`) takes longer than 200 milliseconds.
+    // If the loading completes within 200ms, the indicator is never shown,
+    // preventing a "flicker" and improving the perceived responsiveness of the UI.
+    // The `loadingModelAllowlistDelayed` state is used to control the actual
+    // visibility of the indicator based on this debounced logic.
+    var loadingModelAllowlistDelayed by remember { mutableStateOf(false) }
+    // This effect runs whenever uiState.loadingModelAllowlist changes
+    LaunchedEffect(uiState.loadingModelAllowlist) {
+      if (uiState.loadingModelAllowlist) {
+        // If loading starts, wait for 200ms
+        delay(200)
+        // After 200ms, check if loadingModelAllowlist is still true
+        if (uiState.loadingModelAllowlist) {
+          loadingModelAllowlistDelayed = true
+        }
+      } else {
+        // If loading finishes, immediately hide the indicator
+        loadingModelAllowlistDelayed = false
+      }
+    }
 
-    // Navigate to chat task after a delay
-    LaunchedEffect(uiState.tasks) {
-      if (uiState.tasks.isNotEmpty()) {
+    // Label and spinner to show when in the process of loading model allowlist.
+    if (loadingModelAllowlistDelayed) {
+      Row(
+        modifier = Modifier.fillMaxSize(),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.Center,
+      ) {
+        CircularProgressIndicator(
+          trackColor = MaterialTheme.colorScheme.surfaceVariant,
+          strokeWidth = 3.dp,
+          modifier = Modifier.padding(end = 8.dp).size(20.dp),
+        )
+        Text(
+          stringResource(R.string.loading_model_list),
+          style = MaterialTheme.typography.bodyMedium,
+        )
+      }
+    } else if (uiState.loadingModelAllowlistError.isNotEmpty()) {
+      AlertDialog(
+        icon = {
+          Icon(Icons.Rounded.Error, contentDescription = "", tint = MaterialTheme.colorScheme.error)
+        },
+        title = { Text(uiState.loadingModelAllowlistError) },
+        text = { Text(stringResource(R.string.internet_connection_error)) },
+        onDismissRequest = { modelManagerViewModel.loadModelAllowlist() },
+        confirmButton = {
+          TextButton(onClick = { modelManagerViewModel.loadModelAllowlist() }) {
+            Text(stringResource(R.string.retry))
+          }
+        },
+      )
+    } else {
+      // Show splash screen and navigate after delay
+      SplashScreen()
+
+      // Navigate to chat task after a delay
+      LaunchedEffect(Unit) {
         delay(3000)
         val chatTask = uiState.tasks.find { it.id == BuiltInTaskId.LLM_CHAT }
         if (chatTask != null) {
@@ -224,7 +278,7 @@ private fun SplashScreen() {
         Text(
             text = secondLineText,
             style = MaterialTheme.typography.headlineLarge,
-            color = MaterialTheme.colorScheme.onSurface
+            color = MaterialTheme.colorScheme.onPrimaryContainer
         )
     }
 }

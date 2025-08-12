@@ -17,7 +17,7 @@
 <resources>
   <!-- TODO(jingjin): Add translation support when i18n is ready. -->
   <string name="app_name" translatable="true">چت‌بات هوش مصنوعی اسمارت‌بوم</string>
-  <string name="app_name_first_part" translatable="true">هوش مصنوعی اسمارت‌بوم</string>
+  <string name="app_name_first_part" translatable="true">اسمارت‌بوم</string>
   <string name="app_name_second_part" translatable="true">چت‌بات</string>
   <string name="app_intro" translatable="true">دنیایی از مدل‌های شگفت‌انگیز روی دستگاه را از اینجا کاوش کنید</string>
   <string name="best_overall" translatable="true">بهترین در کل</string>
