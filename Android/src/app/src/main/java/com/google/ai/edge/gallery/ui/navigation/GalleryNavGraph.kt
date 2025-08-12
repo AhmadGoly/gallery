@@ -177,7 +177,7 @@ fun GalleryNavHost(
   NavHost(
     navController = navController,
     // Default to open home screen.
-    startDestination = ROUTE_PLACEHOLDER,
+    startDestination = "$ROUTE_MODEL/llm_chat/Gemma-3n-E2B-it-int4",
     enterTransition = { EnterTransition.None },
     exitTransition = { ExitTransition.None },
     modifier = modifier.zIndex(1f),

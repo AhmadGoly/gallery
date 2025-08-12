@@ -439,7 +439,7 @@ fun HomeScreen(
   if (showImportModelSheet) {
     ModalBottomSheet(onDismissRequest = { showImportModelSheet = false }, sheetState = sheetState) {
       Text(
-        "Import model",
+        stringResource(R.string.import_model),
         style = MaterialTheme.typography.titleLarge,
         modifier = Modifier.padding(vertical = 4.dp, horizontal = 16.dp),
       )
@@ -469,7 +469,7 @@ fun HomeScreen(
           modifier = Modifier.fillMaxWidth().padding(16.dp),
         ) {
           Icon(Icons.AutoMirrored.Outlined.NoteAdd, contentDescription = "")
-          Text("From local model file")
+          Text(stringResource(R.string.from_local_model_file))
         }
       }
     }
@@ -503,7 +503,7 @@ fun HomeScreen(
             showImportingDialog = false
 
             // Show a snack bar for successful import.
-            scope.launch { snackbarHostState.showSnackbar("Model imported successfully") }
+            scope.launch { snackbarHostState.showSnackbar(context.getString(R.string.model_imported_successfully)) }
           },
         )
       }
@@ -514,8 +514,8 @@ fun HomeScreen(
   if (showUnsupportedFileTypeDialog) {
     AlertDialog(
       onDismissRequest = { showUnsupportedFileTypeDialog = false },
-      title = { Text("Unsupported file type") },
-      text = { Text("Only \".task\" or \".litertlm\" file type is supported.") },
+      title = { Text(stringResource(R.string.unsupported_file_type)) },
+      text = { Text(stringResource(R.string.unsupported_file_type_message)) },
       confirmButton = {
         Button(onClick = { showUnsupportedFileTypeDialog = false }) {
           Text(stringResource(R.string.ok))
@@ -530,10 +530,10 @@ fun HomeScreen(
         Icon(Icons.Rounded.Error, contentDescription = "", tint = MaterialTheme.colorScheme.error)
       },
       title = { Text(uiState.loadingModelAllowlistError) },
-      text = { Text("Please check your internet connection and try again later.") },
+      text = { Text(stringResource(R.string.internet_connection_error)) },
       onDismissRequest = { modelManagerViewModel.loadModelAllowlist() },
       confirmButton = {
-        TextButton(onClick = { modelManagerViewModel.loadModelAllowlist() }) { Text("Retry") }
+        TextButton(onClick = { modelManagerViewModel.loadModelAllowlist() }) { Text(stringResource(R.string.retry)) }
       },
     )
   }
@@ -793,8 +793,8 @@ private fun TaskCard(task: Task, index: Int, onClick: () -> Unit, modifier: Modi
   val modelCountLabel by remember {
     derivedStateOf {
       when (modelCount) {
-        1 -> "1 Model"
-        else -> "%d Models".format(modelCount)
+        1 -> context.getString(R.string.one_model)
+        else -> context.getString(R.string.n_models, modelCount)
       }
     }
   }

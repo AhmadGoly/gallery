@@ -16,9 +16,9 @@
 
 <resources>
   <!-- TODO(jingjin): Add translation support when i18n is ready. -->
-  <string name="app_name" translatable="true">SmartBoom AI Chatbot</string>
-  <string name="app_name_first_part" translatable="true">SmartBoom AI</string>
-  <string name="app_name_second_part" translatable="true">Chatbot</string>
+  <string name="app_name" translatable="true">چت‌بات هوش مصنوعی اسمارت‌بوم</string>
+  <string name="app_name_first_part" translatable="true">هوش مصنوعی اسمارت‌بوم</string>
+  <string name="app_name_second_part" translatable="true">چت‌بات</string>
   <string name="app_intro" translatable="true">دنیایی از مدل‌های شگفت‌انگیز روی دستگاه را از اینجا کاوش کنید</string>
   <string name="best_overall" translatable="true">بهترین در کل</string>
   <plurals name="model_list_number_of_models_available" translatable="true">
@@ -32,7 +32,7 @@
   <string name="downloaded_size" translatable="true">%1$s دانلود شد</string>
   <string name="cancel" translatable="true">لغو</string>
   <string name="category_unlabeled" translatable="true">بدون برچسب</string>
-  <string name="category_llm" translatable="true">LLM</string>
+  <string name="category_llm" translatable="true">مدل زبان بزرگ</string>
   <string name="category_classical_ml" translatable="true">یادگیری ماشین کلاسیک</string>
   <string name="category_experimental" translatable="true">آزمایشی</string>
   <string name="checking_access" translatable="true">در حال بررسی دسترسی...</string>
@@ -46,7 +46,7 @@
   <string name="notification_content_fail" translatable="true">دانلود مدل «%s» ناموفق بود</string>
   <string name="chat_textinput_placeholder" translatable="true">پیام خود را تایپ کنید...</string>
   <string name="chat_you" translatable="true">شما</string>
-  <string name="chat_llm_agent_name" translatable="true">LLM</string>
+  <string name="chat_llm_agent_name" translatable="true">مدل زبان بزرگ</string>
   <string name="chat_generic_agent_name" translatable="true">مدل</string>
   <string name="chat_generic_result_name" translatable="true">نتیجه</string>
   <string name="learn_more" translatable="true">بیشتر بدانید</string>
@@ -61,7 +61,7 @@
   <string name="text_input_placeholder_text_classification" translatable="true">برای طبقه‌بندی، نقد فیلم را تایپ کنید...</string>
   <string name="text_image_generation_text_field_placeholder" translatable="true">اعلان را تایپ کنید...</string>
   <string name="text_input_placeholder_llm_chat" translatable="true">اعلان را تایپ کنید...</string>
-  <string name="tos_dialog_title_app_name" translatable="true">SmartBoom AI Chatbot App</string>
+  <string name="tos_dialog_title_app_name" translatable="true">برنامه چت‌بات هوش مصنوعی اسمارت‌بوم</string>
   <string name="tos_dialog_title_tos" translatable="true">شرایط خدمات</string>
   <string name="tos_dialog_view_full_tos" translatable="true">مشاهده شرایط خدمات این برنامه</string>
   <string name="tos_dialog_view_accept_button_label" translatable="true">پذیرش و ادامه</string>
@@ -70,4 +70,13 @@
   <string name="benchmark" translatable="true">اجرای بنچمارک</string>
   <string name="warming_up" translatable="true">در حال گرم شدن...</string>
   <string name="running" translatable="true">در حال اجرا</string>
+  <string name="import_model" translatable="true">وارد کردن مدل</string>
+  <string name="from_local_model_file" translatable="true">از فایل مدل محلی</string>
+  <string name="model_imported_successfully" translatable="true">مدل با موفقیت وارد شد</string>
+  <string name="unsupported_file_type" translatable="true">نوع فایل پشتیبانی نمی‌شود</string>
+  <string name="unsupported_file_type_message" translatable="true">فقط فایل‌های با نوع «.task» یا «.litertlm» پشتیبانی می‌شوند.</string>
+  <string name="internet_connection_error" translatable="true">لطفاً اتصال اینترنت خود را بررسی کرده و دوباره امتحان کنید.</string>
+  <string name="retry" translatable="true">تلاش مجدد</string>
+  <string name="one_model" translatable="true">1 مدل</string>
+  <string name="n_models" translatable="true">%d مدل</string>
 </resources>
