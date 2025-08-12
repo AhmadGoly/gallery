@@ -68,16 +68,16 @@ import com.google.ai.edge.gallery.firebaseAnalytics
 import com.google.ai.edge.gallery.ui.common.ErrorDialog
 import com.google.ai.edge.gallery.ui.common.ModelPageAppBar
 import com.google.ai.edge.gallery.ui.common.chat.ModelDownloadStatusInfoPanel
-import com.google.ai.edge.gallery.ui.home.HomeScreen
 import com.google.ai.edge.gallery.ui.modelmanager.ModelInitializationStatusType
-import com.google.ai.edge.gallery.ui.modelmanager.ModelManager
 import com.google.ai.edge.gallery.ui.modelmanager.ModelManagerViewModel
+import com.google.ai.edge.gallery.ui.splash.SplashScreen
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 private const val TAG = "AGGalleryNavGraph"
 private const val ROUTE_PLACEHOLDER = "placeholder"
 private const val ROUTE_MODEL = "route_model"
+private const val ROUTE_SPLASH = "splash"
 private const val ENTER_ANIMATION_DURATION_MS = 500
 private val ENTER_ANIMATION_EASING = EaseOutExpo
 private const val ENTER_ANIMATION_DELAY_MS = 100
@@ -119,8 +119,6 @@ fun GalleryNavHost(
   modelManagerViewModel: ModelManagerViewModel = hiltViewModel(),
 ) {
   val lifecycleOwner = LocalLifecycleOwner.current
-  var showModelManager by remember { mutableStateOf(false) }
-  var pickedTask by remember { mutableStateOf<Task?>(null) }
 
   // Track whether app is in foreground.
   DisposableEffect(lifecycleOwner) {
@@ -145,43 +143,23 @@ fun GalleryNavHost(
     onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
   }
 
-  HomeScreen(
-    modelManagerViewModel = modelManagerViewModel,
-    tosViewModel = hiltViewModel(),
-    navigateToTaskScreen = { task ->
-      pickedTask = task
-      showModelManager = true
-      firebaseAnalytics?.logEvent("capability_select", bundleOf("capability_name" to task.id))
-    },
-  )
-
-  // Model manager.
-  AnimatedVisibility(
-    visible = showModelManager,
-    enter = slideInHorizontally(initialOffsetX = { it }),
-    exit = slideOutHorizontally(targetOffsetX = { it }),
-  ) {
-    val curPickedTask = pickedTask
-    if (curPickedTask != null) {
-      ModelManager(
-        viewModel = modelManagerViewModel,
-        task = curPickedTask,
-        onModelClicked = { model ->
-          navController.navigate("$ROUTE_MODEL/${curPickedTask.id}/${model.name}")
-        },
-        navigateUp = { showModelManager = false },
-      )
-    }
-  }
-
   NavHost(
     navController = navController,
-    // Default to open home screen.
-    startDestination = "$ROUTE_MODEL/llm_chat/Gemma-3n-E2B-it-int4",
+    startDestination = ROUTE_SPLASH,
     enterTransition = { EnterTransition.None },
     exitTransition = { ExitTransition.None },
     modifier = modifier.zIndex(1f),
   ) {
+    composable(route = ROUTE_SPLASH) {
+      SplashScreen(
+        onTimeout = {
+          navController.navigate("$ROUTE_MODEL/llm_chat/Gemma-3n-E2B-it-int4") {
+            popUpTo(ROUTE_SPLASH) { inclusive = true }
+          }
+        }
+      )
+    }
+
     // Placeholder root screen
     composable(route = ROUTE_PLACEHOLDER) { Text("") }
 
